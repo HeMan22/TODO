@@ -45,13 +45,20 @@ function deleteCheck(e) {
     // console.log(e.target);
     const item = e.target;
 
-    // console.log(item.classList[0]);
+    console.log(item.classList[0]);
 
     //Delete Todo
     if (item.classList[0] === "trash-btn") {
         const todo = item.parentElement;
         // console.log("Parent Element -> ", todo);
-        todo.remove();
+
+        //ANIMATION
+        todo.classList.add("fall");
+
+        document.addEventListener('transitionend', function () {
+            todo.remove();
+        })
+
     }
 
     //Check Todo
